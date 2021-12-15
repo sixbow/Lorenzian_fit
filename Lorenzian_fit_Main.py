@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import os
-
+#Loading in the data 
 cwd = os.getcwd()
 datafolder = cwd + r'\datafolder'
 datafile = datafolder + '\PlusLossTangent'

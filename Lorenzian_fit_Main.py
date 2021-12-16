@@ -5,11 +5,13 @@ import os
 #Loading in the data 
 cwd = os.getcwd()
 datafolder = cwd + r'\datafolder'
-datafile = datafolder + '\PlusLossTangent'
-datasets = np.genfromtxt(datafile, delimiter=",", skip_header=0, usecols=[0,5])
+Ocoupler = 14;
+Ocoupler_str = str(Ocoupler)
+datafile = datafolder + '\Full_modelV1_4_0_3Target_T3DataDelete_CouplerParameterization2500Try2Ocoupler' + Ocoupler_str + '.csv'
+datasets = np.genfromtxt(datafile, delimiter=",", skip_header=13, usecols=[0,5,6])
 frequencies = datasets[:,0]
-S21_dB = datasets[:,1]
-
+S21_dB = 20*np.log10(np.absolute(np.power(datasets[:,1],2) + 1j*np.power(datasets[:,2],2)))
+plt.plot(frequencies,S21_dB)
 # Begin Guess
 mag_sq_dB = 2*S21_dB 
 minimum_idx = np.argmin(S21_dB)
@@ -56,7 +58,9 @@ ax.plot(frequencies, Lorentzian_sq_dB(frequencies,S_21_min_fit,Q_fit,f_res_fit),
 plt.ylabel('$S_{21}\:\:    (dB)$')
 plt.xlabel('f      (GHz)')
 ax.legend(['Sonnet Data','Lorenzian fit'])
-ax.set_xlim([5.431,5.432])
+ax.set_xlim([frequencies[round(frequencies.size*0.58)],frequencies[round(frequencies.size*0.68)]])
+ax.set_title("Lorenzian fit of the S21 Parameters of Full Sonnet. @ $O_{coupler}$ = "+Ocoupler_str)
+plt.savefig('Images/Lorenzian_fit_O_coupler'+Ocoupler_str+'.pdf')
 #Calculate relevant parameters
 Qi = Q_fit/S_21_min_fit
 Qc = 1/((1/Q_fit)-(1/Qi))

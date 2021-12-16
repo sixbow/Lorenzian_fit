@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import os
-#Loading in the data 
+#Loading in the data
 cwd = os.getcwd()
 datafolder = cwd + r'\datafolder'
 Ocoupler = 14;
@@ -13,7 +13,7 @@ frequencies = datasets[:,0]
 S21_dB = 20*np.log10(np.absolute(np.power(datasets[:,1],2) + 1j*np.power(datasets[:,2],2)))
 plt.plot(frequencies,S21_dB)
 # Begin Guess
-mag_sq_dB = 2*S21_dB 
+mag_sq_dB = 2*S21_dB
 minimum_idx = np.argmin(S21_dB)
 f_res_guess = frequencies[minimum_idx]
 S21min_sq_dB_guess = mag_sq_dB[minimum_idx]
@@ -42,7 +42,7 @@ def Lorentzian_sq_dB(f, S21min, Q, f_res):
 
 def fit_lor(dataset_f, dataset_S):
     popt, pcov = curve_fit(Lorentzian_sq_dB, frequencies, 2*S21_dB, p0=p0)
-    
+
     return popt
 
 
@@ -58,14 +58,12 @@ ax.plot(frequencies, Lorentzian_sq_dB(frequencies,S_21_min_fit,Q_fit,f_res_fit),
 plt.ylabel('$S_{21}\:\:    (dB)$')
 plt.xlabel('f      (GHz)')
 ax.legend(['Sonnet Data','Lorenzian fit'])
-ax.set_xlim([frequencies[round(frequencies.size*0.58)],frequencies[round(frequencies.size*0.68)]])
+ax.set_xlim([frequencies[round(frequencies.size*0.5)],frequencies[round(frequencies.size*0.7)]])
 ax.set_title("Lorenzian fit of the S21 Parameters of Full Sonnet. @ $O_{coupler}$ = "+Ocoupler_str)
 plt.savefig('Images/Lorenzian_fit_O_coupler'+Ocoupler_str+'.pdf')
+plt.savefig('Images/Lorenzian_fit_O_coupler'+Ocoupler_str+'.png',format='png', dpi=1200)
+
 #Calculate relevant parameters
 Qi = Q_fit/S_21_min_fit
 Qc = 1/((1/Q_fit)-(1/Qi))
-print('Q:'+str(Q_fit)+'|'+'Qi:'+ str(Qi) + '|Qc:'+str(Qc)+'|S21_min:'+ str(S_21_min_fit) + '|f_res:'+ str(f_res_fit)) 
-
-
-
-
+print('A_coupler = '+str(Ocoupler*(10**-6)*(4*(10**-6)))+'|\nQ:'+str(Q_fit)+'|\n'+'Qi:'+ str(Qi) + '|\nQc:'+str(Qc)+'|\nS21_min:'+ str(S_21_min_fit) + '|\nf_res:'+ str(f_res_fit))

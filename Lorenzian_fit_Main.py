@@ -7,14 +7,16 @@ import os
 # Loading in the data -> See Import.md for info on how to perform an import from sonnet.
 cwd = os.getcwd()
 datafolder = cwd + r'\datafolder'
-Ocoupler = 14;#
+Ocoupler = 14;
+Ocoupler_overlap = 4;
 Ocoupler_str = str(Ocoupler)
+Ocoupler_overlap_str = str(Ocoupler_overlap)
 #---> Insert your datapath here! You can uncomment lines to use different data
-data = '\Full_modelV1_4_0_3Target_T3DataDelete_CouplerParameterization2500Try2Ocoupler' + Ocoupler_str + '.csv'#4 Coupler data
-#data = '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv' #Latest data 10-01-2022
+#data = '\Full_modelV1_4_0_3Target_T3DataDelete_CouplerParameterization2500Try2Ocoupler' + Ocoupler_str + '.csv'#4 Coupler data
+data = '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv' #Latest data 10-01-2022
 #---> End Insert datapath!
 #---> skip controls the amount of header lines to ignore
-skip = 13;
+skip = 15;#Old data 13
 #---> End
 datafile = datafolder + data
 datasets = np.genfromtxt(datafile, delimiter=",", skip_header=skip, usecols=[0,5,6])
@@ -67,7 +69,7 @@ def fit_lor(dataset_f, dataset_S):
 
     return popt
 
-# Begin fit
+# Begin fit + Plot Lorenzian fit and sonnet data
 output = fit_lor(frequencies, S21_dB)
 S_21_min_fit = output[0]
 Q_fit = output[1]
@@ -78,8 +80,8 @@ ax.plot(frequencies, Lorentzian_sq_dB(frequencies,S_21_min_fit,Q_fit,f_res_fit),
 plt.ylabel('$S_{21}\:\:    (dB)$')
 plt.xlabel('f      (GHz)')
 ax.legend(['Lorenzian fit','Sonnet Data'])
-ax.set_xlim([frequencies[round(frequencies.size*0.5)],frequencies[round(frequencies.size*0.7)]])
-ax.set_title("Lorenzian fit of the S21 Parameters of Full Sonnet. @ $O_{coupler}$ = "+Ocoupler_str)
+ax.set_xlim(5.44,5.45)
+ax.set_title("Lorenzian fit of the S21 Parameters of Full Sonnet. @ $O_{coupler overlap}$ = "+Ocoupler_overlap_str)
 plt.savefig('Images/Lorenzian_fit_O_coupler'+Ocoupler_str+'.pdf')
 plt.savefig('Images/Lorenzian_fit_O_coupler'+Ocoupler_str+'.png',format='png', dpi=1200)
 

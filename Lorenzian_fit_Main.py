@@ -6,16 +6,6 @@ plt.rcParams["figure.dpi"] = 300 #Makes the plots render in 300dpi
 
 
 
-cwd = os.getcwd()
-datafolder = cwd + r'\datafolder'
-Ocoupler = 14;
-Ocoupler_overlap = 4;
-Ocoupler_str = str(Ocoupler)
-Ocoupler_overlap_str = str(Ocoupler_overlap)
-skip = 15
-measurement = datafolder + '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv'
-data = np.genfromtxt(measurement, delimiter=",", skip_header=skip)
-
 # #%% Loading data and importing data
 # # Loading in the data -> See Import.md for info on how to perform an import from sonnet.
 # cwd = os.getcwd()
@@ -46,7 +36,8 @@ Ocoupler_str = str(Ocoupler)
 Ocoupler_overlap_str = str(Ocoupler_overlap)
 #---> Insert your datapath here! You can uncomment lines to use different data
 #measurement = '\Full_modelV1_4_0_3Target_T3DataDelete_CouplerParameterization2500Try2Ocoupler' + Ocoupler_str + '.csv'#4 Coupler data
-measurement = '\Full_modelV2_3_0_CouplerCharaterizationHighFreqTry2Oeff' + Ocoupler_str + '.csv'#4 Coupler data
+#Coupler Dataset 2# measurement = '\Full_modelV2_3_0_CouplerCharaterizationHighFreqTry2Oeff' + Ocoupler_str + '.csv'#4 Coupler data
+measurement = '\Full_modelV2_3_0_CouplerCharaterization7_22GhzOeff' + Ocoupler_str + '.csv'#4 Coupler data
 
 #measurement = '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv' #Latest data 10-01-2022
 #---> End Insert datapath!

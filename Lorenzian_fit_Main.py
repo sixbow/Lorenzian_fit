@@ -1,3 +1,4 @@
+#Title: Handpicked Coupler values 7.22 GHZ
 from Khalil import KhalilModel_2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -31,7 +32,7 @@ plt.rcParams["figure.dpi"] = 300 #Makes the plots render in 300dpi
 cwd = os.getcwd()
 datafolder = cwd + r'\datafolder'
 Ocoupler = 6;
-Ocoupler_overlap = 6 ;
+Ocoupler_overlap = 2 ;
 Ocoupler_str = str(Ocoupler)
 #Ocoupler_overlap_str = str(Ocoupler_overlap)
 #Ocoupler_overlap_str = str(Ocoupler_overlap)

@@ -1,4 +1,4 @@
-#Title: Handpicked Coupler values 5.25 GHZ
+#Title: Handpicked Coupler values 5.75 GHZ
 from Khalil import KhalilModel_2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -43,7 +43,7 @@ Ocoupler_overlap_str = "{:2.1f}".format(Ocoupler_overlap)
 #measurement = '\Full_modelV1_4_0_3Target_T3DataDelete_CouplerParameterization2500Try2Ocoupler' + Ocoupler_str + '.csv'#4 Coupler data
 #Coupler Dataset 2# measurement = '\Full_modelV2_3_0_CouplerCharaterizationHighFreqTry2Oeff' + Ocoupler_str + '.csv'#4 Coupler data
 #Measurement 2 data # measurement = '\Full_modelV2_3_0_CouplerCharaterization7_22GhzOeff' + Ocoupler_str + '.csv'#4 Coupler data
-measurement = '\Full_modelV2_4_0G1_5_25_GHz_Oeff' + Ocoupler_overlap_str + '.csv'#4 Coupler data
+measurement = '\Full_modelV2_4_0G1_5_75_GHz_Oeff' + Ocoupler_overlap_str + '.csv'#4 Coupler data
 print(measurement)
 #measurement = '\Full_modelV1_9_0_NoCouplerD0_10_20_40Dist' + Ocoupler_overlap_str + '.csv'#4 Coupler data
 #measurement = '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv' #Latest data 10-01-2022

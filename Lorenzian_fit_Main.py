@@ -7,56 +7,30 @@ plt.rcParams["figure.dpi"] = 300 #Makes the plots render in 300dpi
 
 
 
-# #%% Loading data and importing data
-# # Loading in the data -> See Import.md for info on how to perform an import from sonnet.
-# cwd = os.getcwd()
-# datafolder = cwd + r'\datafolder'
-# Ocoupler = 14;
-# Ocoupler_overlap = 4;
-# Ocoupler_str = str(Ocoupler)
-# Ocoupler_overlap_str = str(Ocoupler_overlap)
-# #---> Insert your datapath here! You can uncomment lines to use different data
-# #data = '\Full_modelV1_4_0_3Target_T3DataDelete_CouplerParameterization2500Try2Ocoupler' + Ocoupler_str + '.csv'#4 Coupler data
-# data = '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv' #Latest data 10-01-2022
-# #---> End Insert datapath!
-# #---> skip controls the amount of header lines to ignore
-# skip = 15;#Old data 13
-# #---> End
-# datafile = datafolder + data
-# datasets = np.genfromtxt(datafile, delimiter=",", skip_header=skip, usecols=[0,5,6])
-
-
-
 #%% Loading data and importing data
 # Loading in the data -> See Import.md for info on how to perform an import from sonnet.
 cwd = os.getcwd()
 datafolder = cwd + r'\datafolder'
-#Ocoupler = 3;
 Ocoupler_overlap = 4.0 ;
 Ocoupler_str = str(Ocoupler_overlap)
-#Ocoupler_overlap_str = str(Ocoupler_overlap)
-#Ocoupler_overlap_str = str(Ocoupler_overlap)
 Ocoupler_overlap_str = "{:2.1f}".format(Ocoupler_overlap)
 print(Ocoupler_str)
 
 #---> Insert your datapath here! You can uncomment lines to use different data
-#measurement = '\Full_modelV1_4_0_3Target_T3DataDelete_CouplerParameterization2500Try2Ocoupler' + Ocoupler_str + '.csv'#4 Coupler data
-#Coupler Dataset 2# measurement = '\Full_modelV2_3_0_CouplerCharaterizationHighFreqTry2Oeff' + Ocoupler_str + '.csv'#4 Coupler data
-#Measurement 2 data # measurement = '\Full_modelV2_3_0_CouplerCharaterization7_22GhzOeff' + Ocoupler_str + '.csv'#4 Coupler data
 measurement = '\MW2500_2-2-2_Oeff4_0' + '.txt'#4 Coupler data
 print(measurement)
-#measurement = '\Full_modelV1_9_0_NoCouplerD0_10_20_40Dist' + Ocoupler_overlap_str + '.csv'#4 Coupler data
-#measurement = '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv' #Latest data 10-01-2022
-#---> End Insert datapath!
 #---> skip controls the amount of header lines to ignore
 skip = 15;#Old data 13
 #---> End
 datafile = datafolder + measurement
-data = np.genfromtxt(datafile, delimiter=",", skip_header=skip)
+data = np.genfromtxt(datafile, delimiter="\t", skip_header=skip)
 
 f = data[:,0]
-S21 = data[:,5] + 1j* data[:,6]
-S21_dB = 20*np.log10(np.abs(S21))
+#S21 = data[:,2] #+ 1j* data[:,6] #This is the |S(2,1)| [dB] dataset.
+S21_dB = data[:,2] # Moeten we hier 2* 
+
+fig1, ax1 =  plt.subplots()
+ax1.plot(f,S21_dB, color='red', label='Raw Data')
 
 Model = KhalilModel_2
 

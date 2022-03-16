@@ -32,18 +32,18 @@ plt.rcParams["figure.dpi"] = 300 #Makes the plots render in 300dpi
 cwd = os.getcwd()
 datafolder = cwd + r'\datafolder'
 #Ocoupler = 3;
-Ocoupler_overlap = 4.5 ;
+Ocoupler_overlap = 4.0 ;
 Ocoupler_str = str(Ocoupler_overlap)
 #Ocoupler_overlap_str = str(Ocoupler_overlap)
 #Ocoupler_overlap_str = str(Ocoupler_overlap)
 Ocoupler_overlap_str = "{:2.1f}".format(Ocoupler_overlap)
-#print(Ocoupler_str)
+print(Ocoupler_str)
 
 #---> Insert your datapath here! You can uncomment lines to use different data
 #measurement = '\Full_modelV1_4_0_3Target_T3DataDelete_CouplerParameterization2500Try2Ocoupler' + Ocoupler_str + '.csv'#4 Coupler data
 #Coupler Dataset 2# measurement = '\Full_modelV2_3_0_CouplerCharaterizationHighFreqTry2Oeff' + Ocoupler_str + '.csv'#4 Coupler data
 #Measurement 2 data # measurement = '\Full_modelV2_3_0_CouplerCharaterization7_22GhzOeff' + Ocoupler_str + '.csv'#4 Coupler data
-measurement = '\Full_modelV2_4_0_G1_5_25GHzCouplingOeff' + Ocoupler_overlap_str + '.csv'#4 Coupler data
+measurement = '\MW2500_2-2-2_Oeff4_0' + '.txt'#4 Coupler data
 print(measurement)
 #measurement = '\Full_modelV1_9_0_NoCouplerD0_10_20_40Dist' + Ocoupler_overlap_str + '.csv'#4 Coupler data
 #measurement = '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv' #Latest data 10-01-2022

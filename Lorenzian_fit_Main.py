@@ -27,7 +27,7 @@ data = np.genfromtxt(datafile, delimiter="\t", skip_header=skip)
 
 f = data[:,0]
 # If data[:,2] is |S(2,1)| in [dB] --> 
-S21_dB = data[:,2] # Moeten we hier 2*data[:,2] ??
+S21_dB = data[:,2] 
 
 fig1, ax1 =  plt.subplots()
 ax1.plot(f,S21_dB, color='red', label='Raw Data')

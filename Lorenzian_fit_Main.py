@@ -13,7 +13,7 @@ cwd = os.getcwd()
 datafolder = cwd + r'\datafolder\MWOffice_Output_csv'
 Group = 1;
 Appc_to_be_squared = 50.0;
-Oeff = 4.50 ;
+Oeff = 6.00 ;
 
 Group_str = "{:1.0f}".format(Group)
 Appc_to_be_squared_str = "{:2.1f}".format(Appc_to_be_squared)

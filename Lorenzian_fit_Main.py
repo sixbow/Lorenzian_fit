@@ -11,9 +11,9 @@ plt.rcParams["figure.dpi"] = 300 #Makes the plots render in 300dpi
 # Loading in the data -> See Import.md for info on how to perform an import from sonnet.
 cwd = os.getcwd()
 datafolder = cwd + r'\datafolder\MWOffice_Output_csv'
-Group = 1;
-Appc_to_be_squared = 50.0;
-Oeff = 6.00 ;
+Group = 4;
+Appc_to_be_squared = 60.0;
+Oeff = 6.00;
 
 Group_str = "{:1.0f}".format(Group)
 Appc_to_be_squared_str = "{:2.1f}".format(Appc_to_be_squared)

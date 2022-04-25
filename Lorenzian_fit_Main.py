@@ -58,7 +58,7 @@ ax.set_xlim([f0-10*f0/Ql, f0+10*f0/Ql])
 ax.set_xlabel('F (GHz)')
 ax.set_ylabel('|S21| [dB]')
 ax.legend()
-
+plt.show()
 #Save Each figure:
 plt.savefig(cwd + "\Images\SiC_final_fitting\\" + measurement[1:-4] + '.png')
 

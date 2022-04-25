@@ -1,0 +1,5 @@
+# ignore all asv files!
+#*.asv
+# ignore all files in image folder
+Backup/
+Images/

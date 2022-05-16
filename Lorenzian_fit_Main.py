@@ -10,9 +10,10 @@ plt.rcParams["figure.dpi"] = 300 #Makes the plots render in 300dpi
 #%% Loading data and importing data
 # Loading in the data -> See Import.md for info on how to perform an import from sonnet.
 cwd = os.getcwd()
-datafolder = cwd + r'\datafolder\MWOffice_Output_csv'
-Group = 4;
-Appc_to_be_squared = 59.0;
+#datafolder = cwd + r'\datafolder\MWOffice_Output_csv' 
+datafolder = cwd + r'\datafolder\MWOffice_Output_Sapphire_csv'
+Group = 3;
+Appc_to_be_squared = 58.5;
 Oeff = 5.75;
 
 Group_str = "{:1.0f}".format(Group)
@@ -24,6 +25,7 @@ print(Oeff_str)
 
 #---> Insert your datapath here! You can uncomment lines to use different data
 measurement = '\MWG'+ Group_str + '_'+ Appc_to_be_squared_str +'_Oeff_' + Oeff_str +'.txt'#4 Coupler data
+
 print(measurement)
 #---> skip controls the amount of header lines to ignore
 skip = 15;#Old data 13
@@ -33,7 +35,7 @@ data = np.genfromtxt(datafile, delimiter="\t", skip_header=skip)
 
 f = data[:,0]
 # If data[:,2] is |S(2,1)| in [dB] --> 
-S21_dB = data[:,2] 
+S21_dB = data[:,1] 
 
 fig1, ax1 =  plt.subplots()
 ax1.plot(f,S21_dB, color='red', label='Raw Data')

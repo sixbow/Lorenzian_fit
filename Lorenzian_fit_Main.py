@@ -43,13 +43,13 @@ Ocoupler_overlap_str = "{:2.1f}".format(Ocoupler_overlap)
 #Coupler Dataset 2# measurement = '\Full_modelV2_3_0_CouplerCharaterizationHighFreqTry2Oeff' + Ocoupler_str + '.csv'#4 Coupler data
 #Measurement 2 data # measurement = '\Full_modelV2_3_0_CouplerCharaterization7_22GhzOeff' + Ocoupler_str + '.csv'#4 Coupler data
 #Before 07-02#measurement = '\Full_modelV2_3_0_CouplerCharaterization7_22GhzZoomOeff' + Ocoupler_overlap_str + '.csv'#4 Coupler data
-measurement = '\ADS_TLMM_50umsquared8umCoupling.txt' # ADS data
+measurement = '\S21_Analytic_Oeff9.00.txt' # ADS data
 print(measurement)
 #measurement = '\Full_modelV1_9_0_NoCouplerD0_10_20_40Dist' + Ocoupler_overlap_str + '.csv'#4 Coupler data
 #measurement = '\Full_modelV2_1_0VerifyVersion2_1Zoom54_55.csv' #Latest data 10-01-2022
 #---> End Insert datapath!
 #---> skip controls the amount of header lines to ignore
-skip = 1;#Old data 13 # Before 07-02: 15
+skip = 0;#Old data 13 # Before 07-02: 15
 #---> End
 datafile = datafolder + measurement
 #Before 07-02#data = np.genfromtxt(datafile, delimiter=",", skip_header=skip)
